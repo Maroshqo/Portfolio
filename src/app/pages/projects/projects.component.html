@@ -1,1 +1,46 @@
-<p>projects works!</p>
+<div class="projects-container">
+  <h1>Software Development Projects</h1>
+  
+  <div class="projects-grid">
+    <div class="project-card" 
+         (click)="showProjectDetails(1)"
+         [class.active]="selectedProject?.id === 1">
+      <div class="project-preview">
+        <i class="fas fa-code"></i>
+        <h3>Project 1</h3>
+        <p>Click to view details</p>
+      </div>
+    </div>
+    
+    <div class="project-card" 
+         (click)="showProjectDetails(2)"
+         [class.active]="selectedProject?.id === 2">
+      <div class="project-preview">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Project 2</h3>
+        <p>Click to view details</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Details Section -->
+  <div class="project-details" *ngIf="selectedProject">
+    <div class="details-content">
+      <h2>{{ selectedProject.title }}</h2>
+      <div class="screenshot-gallery">
+        <img *ngFor="let screenshot of selectedProject.screenshots" 
+             [src]="screenshot" 
+             [alt]="selectedProject.title + ' screenshot'">
+      </div>
+      <div class="project-description">
+        <p>{{ selectedProject.description }}</p>
+        <div class="tech-stack">
+          <h3>Technologies Used:</h3>
+          <ul>
+            <li *ngFor="let tech of selectedProject.technologies">{{ tech }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

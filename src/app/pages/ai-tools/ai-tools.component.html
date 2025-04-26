@@ -1,1 +1,52 @@
-<p>ai-tools works!</p>
+<div class="ai-tools-container">
+  <h1>AI Integrations</h1>
+  
+  <div class="ai-tools-grid">
+    <div class="ai-tool-card" 
+         (click)="showToolDetails(1)"
+         [class.active]="selectedTool?.id === 1">
+      <div class="tool-preview">
+        <i class="fas fa-brain"></i>
+        <h3>AI Integration 1</h3>
+        <p>Click to view details</p>
+      </div>
+    </div>
+    
+    <div class="ai-tool-card" 
+         (click)="showToolDetails(2)"
+         [class.active]="selectedTool?.id === 2">
+      <div class="tool-preview">
+        <i class="fas fa-robot"></i>
+        <h3>AI Integration 2</h3>
+        <p>Click to view details</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Tool Details Section -->
+  <div class="tool-details" *ngIf="selectedTool">
+    <div class="details-content">
+      <h2>{{ selectedTool.title }}</h2>
+      <div class="screenshot-gallery">
+        <img *ngFor="let screenshot of selectedTool.screenshots" 
+             [src]="screenshot" 
+             [alt]="selectedTool.title + ' screenshot'">
+      </div>
+      <div class="tool-description">
+        <p>{{ selectedTool.description }}</p>
+        <div class="tech-stack">
+          <h3>Technologies Used:</h3>
+          <ul>
+            <li *ngFor="let tech of selectedTool.technologies">{{ tech }}</li>
+          </ul>
+        </div>
+        <div class="ai-features">
+          <h3>AI Features:</h3>
+          <ul>
+            <li *ngFor="let feature of selectedTool.aiFeatures">{{ feature }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
