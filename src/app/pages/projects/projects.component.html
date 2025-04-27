@@ -28,9 +28,11 @@
     <div class="details-content">
       <h2>{{ selectedProject.title }}</h2>
       <div class="screenshot-gallery">
-        <img *ngFor="let screenshot of selectedProject.screenshots" 
+        <img *ngFor="let screenshot of selectedProject.screenshots; let i = index" 
              [src]="screenshot" 
-             [alt]="selectedProject.title + ' screenshot'">
+             [alt]="selectedProject.title + ' screenshot'"
+             (click)="openGallery(selectedProject.screenshots, i)"
+             class="gallery-thumbnail">
       </div>
       <div class="project-description">
         <p>{{ selectedProject.description }}</p>
@@ -43,4 +45,12 @@
       </div>
     </div>
   </div>
+
+  <!-- Image Gallery -->
+  <app-image-gallery 
+    [images]="galleryImages" 
+    [isOpen]="galleryOpen" 
+    [startIndex]="galleryIndex"
+    (closeGallery)="closeGallery()">
+  </app-image-gallery>
 </div>

@@ -1,0 +1,21 @@
+<div class="gallery-overlay" *ngIf="isOpen" (click)="onBackdropClick($event)">
+  <div class="gallery-content">
+    <button class="close-btn" (click)="close()">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="image-container">
+      <img [src]="images[currentIndex]" [alt]="'Gallery image ' + (currentIndex + 1)">
+    </div>
+    
+    <div class="navigation-controls">
+      <button class="nav-btn prev-btn" (click)="prev()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="image-counter">{{ currentIndex + 1 }} / {{ images.length }}</div>
+      <button class="nav-btn next-btn" (click)="next()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

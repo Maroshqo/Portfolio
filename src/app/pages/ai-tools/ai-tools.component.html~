@@ -28,11 +28,7 @@
     <div class="details-content">
       <h2>{{ selectedTool.title }}</h2>
       <div class="screenshot-gallery">
-        <img *ngFor="let screenshot of selectedTool.screenshots; let i = index"
-             [src]="screenshot"
-             [alt]="selectedTool.title + ' screenshot'"
-             (click)="openGallery(selectedTool.screenshots, i)"
-             class="gallery-thumbnail">
+        <img src="assets/gifs/AI-Navigator%20ChatBot.gif" alt="Chatbot Demo">
       </div>
       <div class="tool-description">
         <p>{{ selectedTool.description }}</p>
@@ -51,12 +47,4 @@
       </div>
     </div>
   </div>
-
-  <!-- Image Gallery -->
-  <app-image-gallery 
-    [images]="galleryImages" 
-    [isOpen]="galleryOpen" 
-    [startIndex]="galleryIndex"
-    (closeGallery)="closeGallery()">
-  </app-image-gallery>
 </div>

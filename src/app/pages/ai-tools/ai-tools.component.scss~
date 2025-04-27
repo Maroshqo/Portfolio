@@ -1,4 +1,4 @@
-.projects-container {
+.ai-tools-container {
   padding: 2rem;
   
   h1 {
@@ -11,7 +11,7 @@
   }
 }
 
-.projects-grid {
+.ai-tools-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
@@ -19,28 +19,50 @@
   margin: 0 auto 3rem;
 }
 
-.project-card {
+.ai-tool-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #00f2fe10, #4facfe10);
+    z-index: 0;
+  }
   
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    
+    &::before {
+      background: linear-gradient(45deg, #00f2fe20, #4facfe20);
+    }
   }
   
   &.active {
     background: linear-gradient(45deg, #00f2fe20, #4facfe20);
     border: 2px solid #4facfe;
     transform: translateY(-5px);
+    
+    &::before {
+      background: linear-gradient(45deg, #00f2fe30, #4facfe30);
+    }
   }
   
-  .project-preview {
+  .tool-preview {
     padding: 3rem 2rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
     
     i {
       font-size: 3rem;
@@ -62,7 +84,7 @@
   }
 }
 
-.project-details {
+.tool-details {
   max-width: 1200px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.05);
@@ -88,7 +110,6 @@
       flex-wrap: wrap;
       gap: 20px;
       margin-bottom: 20px;
-      justify-content: center;
       
       .gallery-thumbnail {
         width: 350px;
@@ -103,10 +124,17 @@
           transform: scale(1.05);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+        
+        // Special styling for GIFs to make them more prominent
+        &[src$=".gif"] {
+          width: 450px;
+          height: 320px;
+          border: 2px solid rgba(79, 172, 254, 0.4);
+        }
       }
     }
     
-    .project-description {
+    .tool-description {
       color: #ffffff;
       
       p {
@@ -114,7 +142,10 @@
         line-height: 1.6;
       }
       
-      .tech-stack {
+      .tech-stack,
+      .ai-features {
+        margin-bottom: 2rem;
+        
         h3 {
           margin-bottom: 1rem;
           color: #4facfe;
@@ -132,6 +163,12 @@
             padding: 0.5rem 1rem;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            
+            &::before {
+              content: '•';
+              margin-right: 0.5rem;
+              color: #4facfe;
+            }
           }
         }
       }
@@ -151,22 +188,27 @@
 }
 
 @media (max-width: 1200px) {
-  .project-details .details-content {
+  .tool-details .details-content {
     .screenshot-gallery {
       .gallery-thumbnail {
         width: 300px;
         height: 220px;
+        
+        &[src$=".gif"] {
+          width: 380px;
+          height: 280px;
+        }
       }
     }
   }
 }
 
 @media (max-width: 768px) {
-  .projects-grid {
+  .ai-tools-grid {
     grid-template-columns: 1fr;
   }
   
-  .project-details .details-content {
+  .tool-details .details-content {
     padding: 1rem;
     
     .screenshot-gallery {
@@ -175,13 +217,18 @@
       .gallery-thumbnail {
         width: 280px;
         height: 200px;
+        
+        &[src$=".gif"] {
+          width: 320px;
+          height: 240px;
+        }
       }
     }
   }
 }
 
 @media (max-width: 480px) {
-  .project-details .details-content {
+  .tool-details .details-content {
     .screenshot-gallery {
       justify-content: center;
       
@@ -189,6 +236,10 @@
         width: 100%;
         height: auto;
         max-height: 250px;
+        
+        &[src$=".gif"] {
+          max-height: 280px;
+        }
       }
     }
   }

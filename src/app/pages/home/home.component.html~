@@ -3,7 +3,7 @@
     <div class="profile-section">
       <div class="profile-image">
         <!-- Using placeholder until me.jpg is available -->
-        <img src="assets/images/me.jpg" alt="Maros Vatascin">
+        <img src="assets/images/profile-placeholder.jpg" alt="Maros Vatascin">
       </div>
       <div class="profile-info">
         <h1>MAROS VATASCIN</h1>
