@@ -33,8 +33,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(45deg, #00f2fe10, #4facfe10);
     z-index: 0;
   }
@@ -42,9 +42,17 @@
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
 
     &::before {
       background: linear-gradient(45deg, #00f2fe20, #4facfe20);
+    }
+
+    .tool-preview h3 {
+      background: linear-gradient(45deg, #00f2fe, #4facfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
     }
   }
 
@@ -204,9 +212,27 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .ai-tools-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ai-tool-card {
+    padding: 1.5rem 1rem;
+
+    .tool-preview {
+      padding: 1.5rem 1rem;
+
+      i {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+      }
+    }
   }
 
   .tool-details .details-content {
@@ -229,6 +255,54 @@
 }
 
 @media (max-width: 480px) {
+  .ai-tools-container {
+    padding: 1rem;
+
+    h1 {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  .ai-tools-grid {
+    gap: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ai-tool-card {
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+    width: 47%;
+    border-radius: 10px;
+    transform: none;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    .tool-preview {
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+
+      i {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+      }
+
+      p {
+        font-size: 0.7rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+
   .tool-details .details-content {
     .screenshot-gallery {
       justify-content: center;
@@ -242,6 +316,24 @@
           max-height: 280px;
         }
       }
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tool-description p {
+      font-size: 0.95rem;
+    }
+
+    .tech-stack h3, .ai-features h3 {
+      font-size: 1.1rem;
+    }
+
+    .tech-stack ul li, .ai-features ul li {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.75rem;
     }
   }
 }

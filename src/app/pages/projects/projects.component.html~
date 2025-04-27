@@ -1,18 +1,18 @@
 <div class="projects-container">
   <h1>Software Development Projects</h1>
-
+  
   <div class="projects-grid">
-    <div class="project-card"
+    <div class="project-card" 
          (click)="showProjectDetails(1)"
          [class.active]="selectedProject?.id === 1">
       <div class="project-preview">
         <i class="fas fa-code"></i>
-        <h3>Project for Solar Turbines</h3>
+        <h3>Project 1</h3>
         <p>Click to view details</p>
       </div>
     </div>
-
-    <div class="project-card"
+    
+    <div class="project-card" 
          (click)="showProjectDetails(2)"
          [class.active]="selectedProject?.id === 2">
       <div class="project-preview">
@@ -28,8 +28,8 @@
     <div class="details-content">
       <h2>{{ selectedProject.title }}</h2>
       <div class="screenshot-gallery">
-        <img *ngFor="let screenshot of selectedProject.screenshots; let i = index"
-             [src]="screenshot"
+        <img *ngFor="let screenshot of selectedProject.screenshots; let i = index" 
+             [src]="screenshot" 
              [alt]="selectedProject.title + ' screenshot'"
              (click)="openGallery(selectedProject.screenshots, i)"
              class="gallery-thumbnail">
@@ -47,9 +47,9 @@
   </div>
 
   <!-- Image Gallery -->
-  <app-image-gallery
-    [images]="galleryImages"
-    [isOpen]="galleryOpen"
+  <app-image-gallery 
+    [images]="galleryImages" 
+    [isOpen]="galleryOpen" 
     [startIndex]="galleryIndex"
     (closeGallery)="closeGallery()">
   </app-image-gallery>

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {ImageGalleryComponent} from '../../shared/image-gallery/image-gallery.component';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ImageGalleryComponent } from '../../shared/image-gallery/image-gallery.component';
 
 interface Project {
   id: number;
@@ -22,14 +22,13 @@ export class ProjectsComponent implements OnInit {
   galleryOpen: boolean = false;
   galleryImages: string[] = [];
   galleryIndex: number = 0;
-
+  
   // Sample project data - replace with your actual projects
   private projects: Project[] = [
     {
       id: 1,
       title: 'Solar Energy Monitoring',
-      description: 'Headquartered in San Diego, California, USA, Solar Turbines Incorporated, a subsidiary of Caterpillar Inc., is one of the world’s leading ' +
-        'manufacturers of industrial gas turbines, with more than 15,000 units and over 2 billion operating hours in over 100 countries.',
+      description: 'A comprehensive solar energy monitoring system that tracks performance, generates reports, and provides real-time analytics for solar installations.',
       screenshots: [
         'assets/images/Solar1.png',
         'assets/images/Solar2.png',
@@ -64,13 +63,13 @@ export class ProjectsComponent implements OnInit {
   closeProject() {
     this.selectedProject = null;
   }
-
+  
   openGallery(images: string[], index: number = 0) {
     this.galleryImages = images;
     this.galleryIndex = index;
     this.galleryOpen = true;
   }
-
+  
   closeGallery() {
     this.galleryOpen = false;
   }

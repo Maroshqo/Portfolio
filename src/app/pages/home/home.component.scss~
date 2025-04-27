@@ -19,7 +19,7 @@
   border-radius: 20px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-
+  
   .profile-image {
     width: 200px;
     height: 200px;
@@ -27,14 +27,14 @@
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid #4facfe;
-
+    
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
   }
-
+  
   .profile-info {
     h1 {
       font-size: 2.5rem;
@@ -43,13 +43,13 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
+    
     h2 {
       font-size: 1.5rem;
       color: #b8b8b8;
       margin-bottom: 1rem;
     }
-
+    
     p {
       font-size: 1.1rem;
       color: #ffffff;
@@ -66,13 +66,13 @@
   right: 0;
   bottom: 0;
   z-index: 0;
-
+  
   .tech-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     padding: 2rem;
-
+    
     .tech-item {
       .tech-circle {
         width: 100px;
@@ -80,7 +80,7 @@
         background: linear-gradient(45deg, #00f2fe20, #4facfe20);
         border-radius: 50%;
         position: relative;
-
+        
         &::after {
           content: '';
           position: absolute;
@@ -100,7 +100,7 @@
 .skills-section {
   padding: 4rem 2rem;
   background: rgba(255, 255, 255, 0.02);
-
+  
   h2 {
     text-align: center;
     font-size: 2rem;
@@ -109,14 +109,14 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
+  
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-
+    
     .skill-card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
@@ -126,7 +126,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       cursor: pointer;
       position: relative;
-
+      
       &::before {
         content: '';
         position: absolute;
@@ -138,23 +138,23 @@
         z-index: 0;
         border-radius: 10px;
       }
-
+      
       &:hover {
         transform: translateY(-5px);
         background: linear-gradient(45deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-
+        
         &::before {
           background: linear-gradient(45deg, #00f2fe20, #4facfe20);
         }
-
+        
         h3 {
           background: linear-gradient(45deg, #00f2fe, #4facfe);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
       }
-
+      
       i {
         font-size: 2.5rem;
         margin-bottom: 1rem;
@@ -162,13 +162,13 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-
+      
       h3 {
         font-size: 1.2rem;
         margin-bottom: 1rem;
         color: #ffffff;
       }
-
+      
       p {
         color: #b8b8b8;
       }
