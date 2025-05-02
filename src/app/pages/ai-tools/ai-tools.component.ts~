@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ImageGalleryComponent } from '../../shared/image-gallery/image-gallery.component';
 
 interface AITool {
   id: number;
@@ -13,12 +14,15 @@ interface AITool {
 @Component({
   selector: 'app-ai-tools',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ImageGalleryComponent],
   templateUrl: './ai-tools.component.html',
   styleUrls: ['./ai-tools.component.scss']
 })
-export class AiToolsComponent {
+export class AiToolsComponent implements OnInit {
   selectedTool: AITool | null = null;
+  galleryOpen: boolean = false;
+  galleryImages: string[] = [];
+  galleryIndex: number = 0;
 
   // Sample AI tools data - replace with your actual AI integrations
   private aiTools: AITool[] = [
@@ -27,7 +31,7 @@ export class AiToolsComponent {
       title: 'AI Navigator Chat Button Kit',
       description: 'An interactive chatbot system that provides intelligent navigation assistance through natural language. Users can ask questions, get recommendations, and perform actions through a conversational interface powered by advanced AI models.',
       screenshots: [
-        'assets/images/gifs/chatbot-demo.gif'
+        'assets/gifs/AI-Navigator%20ChatBot.gif'
       ],
       technologies: ['TensorFlow', 'Python', 'OpenAI API', 'Flask', 'WebSockets'],
       aiFeatures: [
@@ -42,8 +46,8 @@ export class AiToolsComponent {
       title: 'Transcriptional Body Analysis',
       description: 'An AI-powered system that analyzes transcriptions and extracts meaningful insights from text data.',
       screenshots: [
-        'assets/images/transcription1.png',
-        'assets/images/transcription2.png'
+        'assets/images/transcription/transcription1.png',
+        'assets/images/transcription/transcription2.png'
       ],
       technologies: ['PyTorch', 'FastAPI', 'Hugging Face', 'Docker', 'NLP Libraries'],
       aiFeatures: [
@@ -55,11 +59,26 @@ export class AiToolsComponent {
     }
   ];
 
+  ngOnInit() {
+    // Pre-select the first AI tool
+    this.showToolDetails(1);
+  }
+
   showToolDetails(toolId: number) {
     this.selectedTool = this.aiTools.find(t => t.id === toolId) || null;
   }
 
   closeTool() {
     this.selectedTool = null;
+  }
+
+  openGallery(images: string[], index: number = 0) {
+    this.galleryImages = images;
+    this.galleryIndex = index;
+    this.galleryOpen = true;
+  }
+
+  closeGallery() {
+    this.galleryOpen = false;
   }
 }

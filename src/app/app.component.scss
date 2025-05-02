@@ -26,12 +26,18 @@
   z-index: 1000;
 
   .nav-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 700;
     background: linear-gradient(45deg, #00f2fe, #4facfe);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease;
     margin-left: 1rem;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   .mobile-menu-toggle {

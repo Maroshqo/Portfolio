@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -15,12 +15,29 @@ interface ContactForm {
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
+export class ContactComponent implements AfterViewInit {
   formData: ContactForm = {
     name: '',
     email: '',
     message: ''
   };
+
+  constructor(private elementRef: ElementRef) {}
+
+  ngAfterViewInit() {
+    // Visual feedback for copy operation
+    const copyBtn = this.elementRef.nativeElement.querySelector('.copy-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        copyBtn.classList.add('copied');
+        setTimeout(() => copyBtn.classList.remove('copied'), 1200);
+      });
+    }
+  }
+
+  copyEmail() {
+    navigator.clipboard.writeText('maros.vatascin@gmail.com');
+  }
 
   onSubmit() {
     // Here you would typically send the form data to your backend

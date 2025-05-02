@@ -28,27 +28,31 @@ export class ProjectsComponent implements OnInit {
     {
       id: 1,
       title: 'Solar Energy Monitoring',
-      description: 'Headquartered in San Diego, California, USA, Solar Turbines Incorporated, a subsidiary of Caterpillar Inc., is one of the world’s leading ' +
+      description: 'Headquartered in San Diego, California, USA, Solar Turbines Incorporated, a subsidiary of Caterpillar Inc., is one of the world\'s leading ' +
         'manufacturers of industrial gas turbines, with more than 15,000 units and over 2 billion operating hours in over 100 countries.',
       screenshots: [
-        'assets/images/Solar1.png',
-        'assets/images/Solar2.png',
-        'assets/images/Solar3.png',
-        'assets/images/Solar4.png',
-        'assets/images/Solar5.png',
-        'assets/images/Solar6.png',
-        'assets/images/TrendAlerts.jpeg'
+        'assets/images/Solar/Solar1.png',
+        'assets/images/Solar/Solar2.png',
+        'assets/images/Solar/Solar3.png',
+        'assets/images/Solar/Solar4.png',
+        'assets/images/Solar/Solar5.png',
+        'assets/images/Solar/Solar6.png',
+        'assets/images/Solar/TrendAlerts.jpeg'
       ],
       technologies: ['Angular', 'TypeScript', 'SCSS', 'Node.js', 'Chart.js', 'RESTful APIs']
     },
     {
       id: 2,
-      title: 'Project 2',
-      description: 'Description of project 2 and its features...',
+      title: 'Impulse Mobile App',
+      description: 'A comprehensive mobile application for managing finances, tracking repairs, and navigating locations. The app features a responsive design that works across multiple devices and includes interactive maps and financial tracking tools.',
       screenshots: [
-        'assets/images/TrendAlerts.jpeg'
+        'assets/images/Impulse/1-global-1.png',
+        'assets/images/Impulse/2-repair-2.png',
+        'assets/images/Impulse/3-cards-finance-1.png',
+        'assets/images/Impulse/4-mobile-2.png',
+        'assets/images/Impulse/5-map-1.png'
       ],
-      technologies: ['React', 'JavaScript', 'CSS', 'Express']
+      technologies: ['React Native', 'JavaScript', 'CSS', 'Express', 'Google Maps API', 'Financial APIs']
     }
   ];
 

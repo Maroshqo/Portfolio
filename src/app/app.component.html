@@ -1,6 +1,6 @@
 <!-- Modern Navigation and Layout -->
 <nav class="main-nav" [class.mobile-open]="isMobileMenuOpen">
-  <div class="nav-brand">Portfolio</div>
+  <div class="nav-brand" routerLink="/home" (click)="closeMobileMenu()">Portfolio</div>
   
   <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
     <i class="fas fa-bars"></i>

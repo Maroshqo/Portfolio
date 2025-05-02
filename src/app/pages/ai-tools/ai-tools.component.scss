@@ -134,10 +134,12 @@
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        // Special styling for GIFs to make them more prominent
+        // Special styling for GIFs to make them display in original size
         &[src$=".gif"] {
-          width: 285px;
-          height: 400px;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          object-fit: contain;
           border: 2px solid rgba(79, 172, 254, 0.4);
         }
       }
@@ -204,8 +206,11 @@
         height: 220px;
 
         &[src$=".gif"] {
-          width: 380px;
-          height: 280px;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          object-fit: contain;
+          border: 2px solid rgba(79, 172, 254, 0.4);
         }
       }
     }
@@ -246,8 +251,11 @@
         height: 200px;
 
         &[src$=".gif"] {
-          width: 320px;
-          height: 240px;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          object-fit: contain;
+          border: 2px solid rgba(79, 172, 254, 0.4);
         }
       }
     }
@@ -313,7 +321,11 @@
         max-height: 250px;
 
         &[src$=".gif"] {
-          max-height: 280px;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          object-fit: contain;
+          border: 2px solid rgba(79, 172, 254, 0.4);
         }
       }
     }

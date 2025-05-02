@@ -4,8 +4,14 @@
       <i class="fas fa-times"></i>
     </button>
     
-    <div class="image-container">
-      <img [src]="images[currentIndex]" [alt]="'Gallery image ' + (currentIndex + 1)">
+    <div class="image-container" 
+         (touchstart)="handleTouchStart($event)" 
+         (touchmove)="handleTouchMove($event)" 
+         (touchend)="handleTouchEnd()">
+      <img [src]="images[currentIndex]" 
+           [alt]="'Gallery image ' + (currentIndex + 1)"
+           [class.slide-left]="swipeDirection === 'left'"
+           [class.slide-right]="swipeDirection === 'right'">
     </div>
     
     <div class="navigation-controls">

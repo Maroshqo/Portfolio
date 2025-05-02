@@ -28,6 +28,22 @@ export class AiToolsComponent implements OnInit {
   private aiTools: AITool[] = [
     {
       id: 1,
+      title: 'Transcriptional Body Analysis',
+      description: 'An AI-powered system that analyzes transcriptions and extracts meaningful insights from text data.',
+      screenshots: [
+        'assets/images/Transcription/transcription1.png',
+        'assets/images/Transcription/transcription2.png'
+      ],
+      technologies: ['PyTorch', 'FastAPI', 'Hugging Face', 'Docker', 'NLP Libraries'],
+      aiFeatures: [
+        'Text Analysis',
+        'Sentiment Recognition',
+        'Key Information Extraction',
+        'Automated Summarization'
+      ]
+    },
+    {
+      id: 2,
       title: 'AI Navigator Chat Button Kit',
       description: 'An interactive chatbot system that provides intelligent navigation assistance through natural language. Users can ask questions, get recommendations, and perform actions through a conversational interface powered by advanced AI models.',
       screenshots: [
@@ -39,22 +55,6 @@ export class AiToolsComponent implements OnInit {
         'Contextual Understanding',
         'Real-time Response Generation',
         'User Intent Recognition'
-      ]
-    },
-    {
-      id: 2,
-      title: 'Transcriptional Body Analysis',
-      description: 'An AI-powered system that analyzes transcriptions and extracts meaningful insights from text data.',
-      screenshots: [
-        'assets/images/transcription1.png',
-        'assets/images/transcription2.png'
-      ],
-      technologies: ['PyTorch', 'FastAPI', 'Hugging Face', 'Docker', 'NLP Libraries'],
-      aiFeatures: [
-        'Text Analysis',
-        'Sentiment Recognition',
-        'Key Information Extraction',
-        'Automated Summarization'
       ]
     }
   ];
@@ -71,13 +71,13 @@ export class AiToolsComponent implements OnInit {
   closeTool() {
     this.selectedTool = null;
   }
-  
+
   openGallery(images: string[], index: number = 0) {
     this.galleryImages = images;
     this.galleryIndex = index;
     this.galleryOpen = true;
   }
-  
+
   closeGallery() {
     this.galleryOpen = false;
   }

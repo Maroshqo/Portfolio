@@ -3,17 +3,24 @@
 
   <div class="contact-content">
     <div class="contact-info">
-      <div class="info-card">
+      <!-- Email Card: not fully clickable, email selectable, copy button included -->
+      <div class="info-card email-card">
         <i class="fas fa-envelope"></i>
         <h3>Email</h3>
-        <a href="mailto:maros.vatascin@gmail.com">maros.vatascin&#64;gmail.com</a>
+        <div class="email-row">
+          <span class="email-text" id="email-address">maros.vatascin&#64;gmail.com</span>
+          <button class="copy-btn" (click)="copyEmail()" title="Copy email">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
       </div>
 
-      <div class="info-card">
+      <!-- LinkedIn Card: whole card clickable -->
+      <a class="info-card linkedin-card" href="https://www.linkedin.com/in/maros-vatascin/" target="_blank" rel="noopener">
         <i class="fab fa-linkedin"></i>
         <h3>LinkedIn</h3>
-        <a href="https://www.linkedin.com/in/maros-vatascin/" target="_blank">View Profile</a>
-      </div>
+        <span class="linkedin-desc">View Profile</span>
+      </a>
     </div>
   </div>
 </div>

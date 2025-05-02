@@ -17,7 +17,7 @@
          [class.active]="selectedProject?.id === 2">
       <div class="project-preview">
         <i class="fas fa-mobile-alt"></i>
-        <h3>Project 2</h3>
+        <h3>Impulse Mobile App</h3>
         <p>Click to view details</p>
       </div>
     </div>
@@ -34,6 +34,7 @@
              (click)="openGallery(selectedProject.screenshots, i)"
              class="gallery-thumbnail">
       </div>
+      
       <div class="project-description">
         <p>{{ selectedProject.description }}</p>
         <div class="tech-stack">
