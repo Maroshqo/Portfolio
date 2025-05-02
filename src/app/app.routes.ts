@@ -5,8 +5,7 @@ import {AiToolsComponent} from './pages/ai-tools/ai-tools.component';
 import {ContactComponent} from './pages/contact/contact.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'ai-tools', component: AiToolsComponent },
   { path: 'contact', component: ContactComponent },
