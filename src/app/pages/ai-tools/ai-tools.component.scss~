@@ -134,10 +134,12 @@
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        // Special styling for GIFs to make them more prominent
+        // Special styling for GIFs to make them display in original size
         &[src$=".gif"] {
-          width: 285px;
-          height: 400px;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          object-fit: contain;
           border: 2px solid rgba(79, 172, 254, 0.4);
         }
       }
@@ -204,30 +206,33 @@
         height: 220px;
 
         &[src$=".gif"] {
-          width: 380px;
-          height: 280px;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          object-fit: contain;
+          border: 2px solid rgba(79, 172, 254, 0.4);
         }
       }
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .ai-tools-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .ai-tool-card {
     padding: 1.5rem 1rem;
-    
+
     .tool-preview {
       padding: 1.5rem 1rem;
-      
+
       i {
         font-size: 2rem;
         margin-bottom: 1rem;
       }
-      
+
       h3 {
         font-size: 1.2rem;
         margin-bottom: 0.75rem;
@@ -246,8 +251,11 @@
         height: 200px;
 
         &[src$=".gif"] {
-          width: 320px;
-          height: 240px;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          object-fit: contain;
+          border: 2px solid rgba(79, 172, 254, 0.4);
         }
       }
     }
@@ -257,80 +265,84 @@
 @media (max-width: 480px) {
   .ai-tools-container {
     padding: 1rem;
-    
+
     h1 {
       margin-bottom: 1.5rem;
       font-size: 1.8rem;
     }
   }
-  
+
   .ai-tools-grid {
     gap: 0.75rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .ai-tool-card {
     padding: 0.5rem;
     margin-bottom: 0.75rem;
     width: 47%;
     border-radius: 10px;
     transform: none;
-    
+
     &:hover {
       transform: translateY(-2px);
     }
-    
+
     .tool-preview {
       padding: 0.75rem 0.5rem;
       text-align: center;
-      
+
       i {
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
       }
-      
+
       h3 {
         font-size: 0.9rem;
         margin-bottom: 0.25rem;
       }
-      
+
       p {
         font-size: 0.7rem;
         margin-bottom: 0;
       }
     }
   }
-  
+
   .tool-details .details-content {
     .screenshot-gallery {
       justify-content: center;
-      
+
       .gallery-thumbnail {
         width: 100%;
         height: auto;
         max-height: 250px;
-        
+
         &[src$=".gif"] {
-          max-height: 280px;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          object-fit: contain;
+          border: 2px solid rgba(79, 172, 254, 0.4);
         }
       }
     }
-    
+
     h2 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-    
+
     .tool-description p {
       font-size: 0.95rem;
     }
-    
+
     .tech-stack h3, .ai-features h3 {
       font-size: 1.1rem;
     }
-    
+
     .tech-stack ul li, .ai-features ul li {
       font-size: 0.9rem;
       padding: 0.4rem 0.75rem;

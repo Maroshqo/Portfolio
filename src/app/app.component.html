@@ -1,5 +1,5 @@
 <!-- Modern Navigation and Layout -->
-<nav class="main-nav" [class.mobile-open]="isMobileMenuOpen">
+<nav class="main-nav" [class.mobile-open]="isMobileMenuOpen" clickOutside (clickOutside)="isMobileMenuOpen ? closeMobileMenu() : null">
   <div class="nav-brand" routerLink="/home" (click)="closeMobileMenu()">Portfolio</div>
   
   <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
