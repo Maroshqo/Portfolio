@@ -17,6 +17,8 @@ export class ImageGalleryComponent implements OnChanges {
   currentIndex: number = 0;
   touchStartX: number = 0;
   touchEndX: number = 0;
+  touchStartTime: number = 0;
+  touchEndTime: number = 0;
   isAnimating: boolean = false;
   swipeDirection: string = '';
 
@@ -86,6 +88,7 @@ export class ImageGalleryComponent implements OnChanges {
   // Touch event handlers for mobile swipe
   handleTouchStart(event: TouchEvent) {
     this.touchStartX = event.touches[0].clientX;
+    this.touchStartTime = new Date().getTime();
   }
 
   handleTouchMove(event: TouchEvent) {
@@ -95,20 +98,31 @@ export class ImageGalleryComponent implements OnChanges {
   handleTouchEnd() {
     if (!this.isOpen || this.isAnimating) return;
     
+    this.touchEndTime = new Date().getTime();
+    const touchDuration = this.touchEndTime - this.touchStartTime;
     const swipeThreshold = 50; // Minimum distance to register as a swipe
     const swipeDistance = this.touchEndX - this.touchStartX;
+    const maxTapDuration = 300; // Maximum duration for a tap in milliseconds
     
-    if (swipeDistance > swipeThreshold) {
-      // Swipe right -> previous image
-      this.prev();
-    } else if (swipeDistance < -swipeThreshold) {
-      // Swipe left -> next image
-      this.next();
+    // Only process as a swipe if:
+    // 1. The touch moved a significant distance (greater than threshold)
+    // 2. It's not just a tap (either moved enough or took longer than a tap)
+    if (Math.abs(swipeDistance) > swipeThreshold && 
+        (Math.abs(swipeDistance) > 10 || touchDuration > maxTapDuration)) {
+      if (swipeDistance > 0) {
+        // Swipe right -> previous image
+        this.prev();
+      } else {
+        // Swipe left -> next image
+        this.next();
+      }
     }
     
-    // Reset touch coordinates
+    // Reset touch coordinates and times
     this.touchStartX = 0;
     this.touchEndX = 0;
+    this.touchStartTime = 0;
+    this.touchEndTime = 0;
   }
 
   // Close when clicking the backdrop (outside the image)
