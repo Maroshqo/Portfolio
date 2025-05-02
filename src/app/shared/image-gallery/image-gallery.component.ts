@@ -17,8 +17,11 @@ export class ImageGalleryComponent implements OnChanges {
   currentIndex: number = 0;
   touchStartX: number = 0;
   touchEndX: number = 0;
+  touchStartY: number = 0;
+  touchEndY: number = 0;
   touchStartTime: number = 0;
   touchEndTime: number = 0;
+  isSwiping: boolean = false;
   isAnimating: boolean = false;
   swipeDirection: string = '';
 
@@ -46,8 +49,13 @@ export class ImageGalleryComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.isOpen && changes['startIndex']) {
-      this.currentIndex = this.startIndex;
+    // When the gallery is opened or the startIndex changes, update the current index
+    if (changes['isOpen'] || changes['startIndex']) {
+      // Only update the index when opening the gallery or when startIndex changes while open
+      if ((changes['isOpen'] && this.isOpen) || 
+          (changes['startIndex'] && this.isOpen)) {
+        this.currentIndex = this.startIndex;
+      }
     }
   }
 
@@ -57,6 +65,9 @@ export class ImageGalleryComponent implements OnChanges {
 
   close() {
     this.closeGallery.emit();
+    // Reset animation states when closing
+    this.isAnimating = false;
+    this.swipeDirection = '';
   }
 
   next() {
@@ -88,11 +99,24 @@ export class ImageGalleryComponent implements OnChanges {
   // Touch event handlers for mobile swipe
   handleTouchStart(event: TouchEvent) {
     this.touchStartX = event.touches[0].clientX;
+    this.touchStartY = event.touches[0].clientY;
     this.touchStartTime = new Date().getTime();
+    this.isSwiping = false;
   }
 
   handleTouchMove(event: TouchEvent) {
     this.touchEndX = event.touches[0].clientX;
+    this.touchEndY = event.touches[0].clientY;
+    
+    // Calculate horizontal and vertical movement
+    const deltaX = Math.abs(this.touchEndX - this.touchStartX);
+    const deltaY = Math.abs(this.touchEndY - this.touchStartY);
+    
+    // If horizontal movement is significant and greater than vertical movement,
+    // consider it a swipe attempt
+    if (deltaX > 10 && deltaX > deltaY) {
+      this.isSwiping = true;
+    }
   }
 
   handleTouchEnd() {
@@ -102,13 +126,11 @@ export class ImageGalleryComponent implements OnChanges {
     const touchDuration = this.touchEndTime - this.touchStartTime;
     const swipeThreshold = 50; // Minimum distance to register as a swipe
     const swipeDistance = this.touchEndX - this.touchStartX;
-    const maxTapDuration = 300; // Maximum duration for a tap in milliseconds
     
     // Only process as a swipe if:
-    // 1. The touch moved a significant distance (greater than threshold)
-    // 2. It's not just a tap (either moved enough or took longer than a tap)
-    if (Math.abs(swipeDistance) > swipeThreshold && 
-        (Math.abs(swipeDistance) > 10 || touchDuration > maxTapDuration)) {
+    // 1. We detected swiping behavior during the touch move
+    // 2. The touch moved a significant horizontal distance (greater than threshold)
+    if (this.isSwiping && Math.abs(swipeDistance) > swipeThreshold) {
       if (swipeDistance > 0) {
         // Swipe right -> previous image
         this.prev();
@@ -121,8 +143,11 @@ export class ImageGalleryComponent implements OnChanges {
     // Reset touch coordinates and times
     this.touchStartX = 0;
     this.touchEndX = 0;
+    this.touchStartY = 0;
+    this.touchEndY = 0;
     this.touchStartTime = 0;
     this.touchEndTime = 0;
+    this.isSwiping = false;
   }
 
   // Close when clicking the backdrop (outside the image)
