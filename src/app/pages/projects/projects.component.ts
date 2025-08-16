@@ -39,7 +39,7 @@ export class ProjectsComponent implements OnInit {
         'assets/images/Solar/Solar6.png',
         'assets/images/Solar/TrendAlerts.jpeg'
       ],
-      technologies: ['Angular', 'TypeScript', 'SCSS', 'Node.js', 'Chart.js', 'RESTful APIs']
+      technologies: ['Angular', 'TypeScript', 'SCSS', 'Highcharts', 'RESTful APIs']
     },
     {
       id: 2,
@@ -52,7 +52,7 @@ export class ProjectsComponent implements OnInit {
         'assets/images/Impulse/4-mobile-2.png',
         'assets/images/Impulse/5-map-1.png'
       ],
-      technologies: ['React Native', 'JavaScript', 'CSS', 'Express', 'Google Maps API', 'Financial APIs']
+      technologies: ['Angular', 'TypeScript', 'SCSS', 'Google Maps API', 'RESTful APIs']
     }
   ];
 

@@ -28,18 +28,27 @@ export class AiToolsComponent implements OnInit {
   private aiTools: AITool[] = [
     {
       id: 1,
-      title: 'Transcriptional Body Analysis',
-      description: 'An AI-powered system that analyzes transcriptions and extracts meaningful insights from text data.',
+      title: 'ML Speech Transcription & Translation',
+      description: 'A Python-based offline speech recognition solution powered by OpenAI\'s Whisper Machine Learning model. This tool transcribes spoken audio from MP3 files into written text (Slovak or any language) with optional translation to English. The system uses Whisper\'s neural network models (tiny, small, or medium) that run entirely offline after download, ensuring complete data privacy. Features include automatic language detection, live progress tracking with percentage and ETA, and comprehensive timing logs. The final transcription is saved as a .txt file, with the entire process running locally on your CPU.',
       screenshots: [
         'assets/images/Transcription/transcription1.png',
         'assets/images/Transcription/transcription2.png'
       ],
-      technologies: ['PyTorch', 'FastAPI', 'Hugging Face', 'Docker', 'NLP Libraries'],
+      technologies: [
+        '🐍 Python 3 - Main programming language with rich ecosystem for files, subprocesses, and AI models',
+        '🎙️ OpenAI Whisper - Pre-trained deep ML neural network model for speech-to-text, language detection, and translation',
+        '🎧 FFmpeg - Command-line tool for audio analysis, conversion, and decoding in Whisper\'s required format',
+        '📊 tqdm - Python library for elegant terminal progress bars showing percentage, elapsed time, and ETA',
+        '🧠 Python Standard Libraries - datetime, time, subprocess, warnings for timing and process management'
+      ],
       aiFeatures: [
-        'Text Analysis',
-        'Sentiment Recognition',
-        'Key Information Extraction',
-        'Automated Summarization'
+        'Speech-to-Text Transcription with Neural Network Processing',
+        'Automatic Language Detection for Multi-Language Support',
+        'Optional Translation to English (task="translate")',
+        'Multiple Model Sizes (tiny, small, medium) for Performance Tuning',
+        'Live Progress Tracking with Percentage, Elapsed Time, and ETA',
+        'Complete Data Privacy (100% Offline Processing)',
+        'MP3 to Text (.txt) Conversion with Timing Logs'
       ]
     },
     {
