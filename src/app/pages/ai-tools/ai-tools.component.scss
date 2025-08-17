@@ -195,6 +195,49 @@
         }
       }
 
+      /* Tech Details Section */
+      .tech-details {
+        .tech-detail-item {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 12px;
+          line-height: 1.6;
+          color: #e0e0e0;
+          
+          .tech-emoji {
+            margin-right: 12px;
+            font-size: 1.2em;
+            flex-shrink: 0;
+          }
+          
+          .tech-description {
+            flex: 1;
+          }
+        }
+      }
+      
+      /* Feature Lists */
+      .feature-list {
+        .feature-item {
+          position: relative;
+          padding-left: 25px;
+          margin-bottom: 12px;
+          color: #e0e0e0;
+          font-size: 1rem;
+          line-height: 1.5;
+          
+          &::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+            font-size: 1.5em;
+            line-height: 1;
+            margin-right: 10px;
+          }
+        }
+      }
+
       /* Tech Bubbles */
       .tech-bubbles {
         display: flex;

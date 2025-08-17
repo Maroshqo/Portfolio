@@ -62,17 +62,20 @@
         <!-- Detailed Technologies Section -->
         <div class="section">
           <h3>Technology Details</h3>
-          <ul class="feature-list">
-            <li *ngFor="let tech of selectedTool.technologies" [innerHTML]="tech"></li>
-          </ul>
+          <div class="tech-details">
+            <div *ngFor="let tech of selectedTool.technologies" class="tech-detail-item">
+              <span class="tech-emoji">{{tech.split(' ')[0]}}</span>
+              <span class="tech-description">{{tech.substring(tech.indexOf(' ') + 1)}}</span>
+            </div>
+          </div>
         </div>
 
         <!-- Capabilities Section -->
         <div class="section">
           <h3>Capabilities</h3>
-          <ul class="feature-list">
-            <li *ngFor="let feature of selectedTool.aiFeatures">{{feature}}</li>
-          </ul>
+          <div class="feature-list">
+            <div *ngFor="let feature of selectedTool.aiFeatures" class="feature-item">{{feature}}</div>
+          </div>
         </div>
       </div>
 
@@ -87,9 +90,9 @@
       
       <div *ngIf="selectedTool.id === 2" class="section">
         <h3>AI Features</h3>
-        <ul class="feature-list">
-          <li *ngFor="let feature of selectedTool.aiFeatures">{{feature}}</li>
-        </ul>
+        <div class="feature-list">
+          <div *ngFor="let feature of selectedTool.aiFeatures" class="feature-item">{{feature}}</div>
+        </div>
       </div>
     </div>
 
