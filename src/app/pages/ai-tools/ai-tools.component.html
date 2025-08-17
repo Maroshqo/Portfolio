@@ -7,7 +7,7 @@
          [class.active]="selectedTool?.id === 1">
       <div class="tool-preview">
         <i class="fas fa-brain"></i>
-        <h3>ML Speech Transcription & Translation</h3>
+        <h3>AI/ML-Powered Speech-to-Text Transcription</h3>
         <p>Click to view details</p>
       </div>
     </div>
@@ -27,6 +27,13 @@
   <div class="tool-details" *ngIf="selectedTool">
     <div class="details-content">
       <h2>{{ selectedTool.title }}</h2>
+      
+      <!-- Description before gallery -->
+      <div class="tool-description">
+        <p *ngFor="let paragraph of selectedTool.description.split('\n')" [innerHTML]="paragraph"></p>
+      </div>
+      
+      <!-- Gallery -->
       <div class="screenshot-gallery">
         <img *ngFor="let screenshot of selectedTool.screenshots; let i = index"
              [src]="screenshot"
@@ -34,29 +41,65 @@
              (click)="openGallery(selectedTool.screenshots, i)"
              class="gallery-thumbnail">
       </div>
-      <div class="tool-description">
-        <p>{{ selectedTool.description }}</p>
+
+      <!-- Tech Stack for Speech-to-Text -->
+      <div *ngIf="selectedTool.id === 1" class="project-description">
         <div class="tech-stack">
-          <h3>Technologies Used:</h3>
-          <ul>
-            <li *ngFor="let tech of selectedTool.technologies">{{ tech }}</li>
+          <h3>Technologies Used</h3>
+          <div class="tech-items">
+            <span>Python 3.13</span>
+            <span>Whisper</span>
+            <span>Faster-Whisper</span>
+            <span>PyTorch</span>
+            <span>SpeechBrain ECAPA-TDNN</span>
+            <span>scikit-learn</span>
+            <span>Librosa</span>
+            <span>FFmpeg</span>
+            <span>Hugging Face Hub</span>
+          </div>
+        </div>
+
+        <!-- Detailed Technologies Section -->
+        <div class="section">
+          <h3>Technology Details</h3>
+          <ul class="feature-list">
+            <li *ngFor="let tech of selectedTool.technologies" [innerHTML]="tech"></li>
           </ul>
         </div>
-        <div class="ai-features">
-          <h3>AI Features:</h3>
-          <ul>
-            <li *ngFor="let feature of selectedTool.aiFeatures">{{ feature }}</li>
+
+        <!-- Capabilities Section -->
+        <div class="section">
+          <h3>Capabilities</h3>
+          <ul class="feature-list">
+            <li *ngFor="let feature of selectedTool.aiFeatures">{{feature}}</li>
           </ul>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Image Gallery -->
-  <app-image-gallery 
-    [images]="galleryImages" 
-    [isOpen]="galleryOpen" 
-    [startIndex]="galleryIndex"
-    (closeGallery)="closeGallery()">
-  </app-image-gallery>
+      <!-- Content for AI Navigator ChatBot -->
+      <div *ngIf="selectedTool.id === 2" class="project-description">
+        <div class="tech-stack">
+          <h3>Technologies Used</h3>
+          <div class="tech-items">
+            <span *ngFor="let tech of selectedTool.technologies">{{tech}}</span>
+          </div>
+        </div>
+      
+      <div *ngIf="selectedTool.id === 2" class="section">
+        <h3>AI Features</h3>
+        <ul class="feature-list">
+          <li *ngFor="let feature of selectedTool.aiFeatures">{{feature}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Image Gallery -->
+    <app-image-gallery 
+      *ngIf="galleryOpen"
+      [images]="galleryImages" 
+      [isOpen]="galleryOpen" 
+      [startIndex]="galleryIndex"
+      (closeGallery)="closeGallery()">
+    </app-image-gallery>
+  </div>
 </div>

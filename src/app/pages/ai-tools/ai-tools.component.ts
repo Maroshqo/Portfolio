@@ -24,46 +24,55 @@ export class AiToolsComponent implements OnInit {
   galleryImages: string[] = [];
   galleryIndex: number = 0;
 
-  // Sample AI tools data - replace with your actual AI integrations
+  // AI Tools Data
   private aiTools: AITool[] = [
     {
       id: 1,
-      title: 'ML Speech Transcription & Translation',
-      description: 'A Python-based offline speech recognition solution powered by OpenAI\'s Whisper Machine Learning model. This tool transcribes spoken audio from MP3 files into written text (Slovak or any language) with optional translation to English. The system uses Whisper\'s neural network models (tiny, small, or medium) that run entirely offline after download, ensuring complete data privacy. Features include automatic language detection, live progress tracking with percentage and ETA, and comprehensive timing logs. The final transcription is saved as a .txt file, with the entire process running locally on your CPU.',
+      title: 'AI/ML-Powered Speech-to-Text Transcription',
+      description: 'AI/Machine Learning-powered Python CLI script built on OpenAI\'s Whisper neural networks and Faster-Whisper that transcribes audio/video with multi-language support, tracks multiple speakers, and maps each sentence to a Person ID (Person1, Person2, …) with a timestamp, producing diarized transcripts.\n\nFeatures include:\n• Hybrid diarization (ECAPA embeddings + K-Means + Viterbi)\n• Optional pyannote fallback\n• Progress bar with ETA\n• Language auto-detection or manual selection\n• Auto/fixed choices for engine, transcription language, and speaker count',
       screenshots: [
-        'assets/images/Transcription/transcription1.png',
-        'assets/images/Transcription/transcription2.png'
+        'assets/images/Transcription2/1.png',
+        'assets/images/Transcription2/2.png',
+        'assets/images/Transcription2/3a.png',
+        'assets/images/Transcription2/3b.png',
+        'assets/images/Transcription2/4.png',
+        'assets/images/Transcription2/5.png',
+        'assets/images/Transcription2/all at once.png'
       ],
       technologies: [
-        '🐍 Python 3 - Main programming language with rich ecosystem for files, subprocesses, and AI models',
-        '🎙️ OpenAI Whisper - Pre-trained deep ML neural network model for speech-to-text, language detection, and translation',
-        '🎧 FFmpeg - Command-line tool for audio analysis, conversion, and decoding in Whisper\'s required format',
-        '📊 tqdm - Python library for elegant terminal progress bars showing percentage, elapsed time, and ETA',
-        '🧠 Python Standard Libraries - datetime, time, subprocess, warnings for timing and process management'
+        '🐍 Python 3.13 - Core language with rich ecosystem for AI/ML development',
+        '🎙️ Faster-Whisper - Efficient speech recognition engine for fast, accurate transcriptions',
+        '🔊 SpeechBrain ECAPA-TDNN - State-of-the-art speaker embedding model for diarization',
+        '🤗 Hugging Face Hub - Model management and offline caching',
+        '📊 scikit-learn - KMeans clustering and model selection metrics',
+        '🎛️ FFmpeg - Audio processing and format conversion',
+        '📈 librosa - Advanced audio feature extraction (MFCC, spectral, pitch)'
       ],
       aiFeatures: [
-        'Speech-to-Text Transcription with Neural Network Processing',
-        'Automatic Language Detection for Multi-Language Support',
-        'Optional Translation to English (task="translate")',
-        'Multiple Model Sizes (tiny, small, medium) for Performance Tuning',
-        'Live Progress Tracking with Percentage, Elapsed Time, and ETA',
-        'Complete Data Privacy (100% Offline Processing)',
-        'MP3 to Text (.txt) Conversion with Timing Logs'
+        'Automatic Speaker Diarization - Identifies and labels different speakers',
+        'Smart Speaker Count - Automatically determines optimal number of speakers',
+        'Frame-wise Analysis - Stable speaker labels even for short phrases',
+        'Multi-language Support - Automatic language detection or manual selection',
+        'Temporal Smoothing - Viterbi algorithm for consistent speaker labeling',
+        'Offline-First - Full functionality without internet after initial setup',
+        'Progress Tracking - Real-time ETA and processing status'
       ]
     },
     {
       id: 2,
-      title: 'AI Navigator Chat Button Kit',
-      description: 'An interactive chatbot system that provides intelligent navigation assistance through natural language. Users can ask questions, get recommendations, and perform actions through a conversational interface powered by advanced AI models.',
+      title: 'AI Navigator ChatBot',
+      description: 'A smart AI assistant integrated into a Healthcare web application built with the Angular framework. The AI Navigator ChatBot is connected to the OpenAI platform via API and provides instant responses based on custom internal documentation. It helps users navigate complex medical features directly through chat, improving accessibility, efficiency, and user experience within the system.',
       screenshots: [
         'assets/gifs/AI-Navigator%20ChatBot.gif'
       ],
-      technologies: ['TensorFlow', 'Python', 'OpenAI API', 'Flask', 'WebSockets'],
+      technologies: ['Angular', 'TypeScript', 'SCSS', 'OpenAI API', 'RxJS', 'HTML/CSS', 'REST API'],
       aiFeatures: [
-        'Natural Language Processing',
-        'Contextual Understanding',
-        'Real-time Response Generation',
-        'User Intent Recognition'
+        'Natural language understanding using OpenAI GPT',
+        'Context-aware responses based on custom healthcare documentation',
+        'Smart navigation guidance through chat (e.g., directing users to specific sections of the app)',
+        'Instant, human-like replies to improve support efficiency',
+        'Introductory and follow-up messaging to enhance user engagement',
+        'Typing indicator animation during AI processing'
       ]
     }
   ];
