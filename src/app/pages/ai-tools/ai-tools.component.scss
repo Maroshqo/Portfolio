@@ -1,3 +1,25 @@
+// Variables
+$primary-gradient: linear-gradient(45deg, #00f2fe, #4facfe);
+$card-bg: rgba(255, 255, 255, 0.05);
+$card-border: rgba(255, 255, 255, 0.1);
+$text-light: #ffffff;
+$text-muted: #b8b8b8;
+$shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+// Mixins
+@mixin gradient-text {
+  background: $primary-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin card-hover {
+  transform: translateY(-5px);
+  box-shadow: $shadow;
+  background: linear-gradient(45deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
+}
+
+// Base styles
 .ai-tools-container {
   padding: 2rem;
 
@@ -5,9 +27,7 @@
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
-    background: linear-gradient(45deg, #00f2fe, #4facfe);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include gradient-text;
   }
 }
 
@@ -20,74 +40,40 @@
 }
 
 .ai-tool-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #00f2fe10, #4facfe10);
-    z-index: 0;
-  }
+  @include card-base;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(45deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
-
-    &::before {
-      background: linear-gradient(45deg, #00f2fe20, #4facfe20);
-    }
-
-    .tool-preview h3 {
-      background: linear-gradient(45deg, #00f2fe, #4facfe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-    }
+    @include card-hover;
+    .tool-preview h3 { @include gradient-text; }
   }
 
   &.active {
-    background: linear-gradient(45deg, #00f2fe20, #4facfe20);
+    @include card-hover;
     border: 2px solid #4facfe;
-    transform: translateY(-5px);
-
-    &::before {
-      background: linear-gradient(45deg, #00f2fe30, #4facfe30);
-    }
   }
 
   .tool-preview {
-    padding: 3rem 2rem;
+    padding: 2rem 1.5rem;
     text-align: center;
     position: relative;
     z-index: 1;
 
     i {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(45deg, #00f2fe, #4facfe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      @include gradient-text;
     }
 
     h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
+      font-size: 1.3rem;
+      margin: 0 0 0.8rem;
+      color: $text-light;
     }
 
     p {
-      color: #b8b8b8;
+      color: $text-muted;
+      margin: 0;
+      font-size: 0.95rem;
     }
   }
 }
@@ -95,9 +81,9 @@
 .tool-details {
   max-width: 1200px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.05);
+  background: $card-bg;
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid $card-border;
   overflow: hidden;
   animation: slideIn 0.3s ease;
 
