@@ -63,7 +63,7 @@ export class AiToolsComponent implements OnInit {
       title: 'AI Navigator ChatBot',
       description: 'Smart AI assistant integrated into a Healthcare web application built with the Angular framework. The AI Navigator ChatBot is connected to the OpenAI platform via API and provides instant responses based on custom internal documentation. It helps users navigate complex medical features directly through chat, improving accessibility, efficiency, and user experience within the system.',
       screenshots: [
-        'assets/gifs/AI-Navigator%20ChatBot.gif'
+        'assets/gifs/AI-Navigator-2025.gif'
       ],
       technologies: ['Angular', 'TypeScript', 'SCSS', 'OpenAI API', 'RxJS', 'HTML/CSS', 'REST API'],
       aiFeatures: [
